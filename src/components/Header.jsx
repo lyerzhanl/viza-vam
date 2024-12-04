@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header>
+    <header className='z-[1]'>
       <div className="flex bg-orange-500">
         <div className="bg-customBlue text-white flex items-center px-4 py-2" style={{
           width: '54%',
@@ -31,18 +31,18 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="text-black flex justify-between items-center p-4 px-[5%]">
+      <div className="text-black flex justify-between absolute w-full z-[1] items-center p-4 px-[5%]">
         <div className="flex items-center">
           <img src="/logo.svg" alt="Logo" className="h-20 mr-2"/>
         </div>
-        <nav className="space-x-4">
+        <nav className="space-x-[40px]">
           <a href="/" className="hover:underline">
             Услуги
           </a>
           <a href="/" className="hover:underline">
             Контакты
           </a>
-          <button className="bg-customBlue hover:bg-blue-500 text-white py-2 px-4 rounded-[2px]">
+          <button className="bg-customBlue hover:bg-blue-500 text-white py-2 px-[25px] rounded-[2px]">
             Оформить заявку
           </button>
         </nav>
