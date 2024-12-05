@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Header = ({ onOpenModal }) => {
+const Header = ({ onOpenModal, onScrollTo }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFloatingMenuOpen, setIsFloatingMenuOpen] = useState(false); // Управление плавающей кнопкой
 
@@ -59,7 +59,9 @@ const Header = ({ onOpenModal }) => {
         {/* Логотип и навигация */}
         <div className="text-black flex justify-between w-full z-[1] items-center p-4 px-[5%]">
           <div className="flex items-center">
-            <img src="/logo.svg" alt="Logo" className="h-14 sm:h-20 mr-2"/>
+            <a href="#" className="hover:underline">
+              <img src="/Logo.svg" alt="Logo" className="h-14 sm:h-20 mr-2"/>
+            </a>
           </div>
           {/* Бургер меню для мобильной версии */}
           <div className="sm:hidden">
@@ -69,10 +71,10 @@ const Header = ({ onOpenModal }) => {
           </div>
           {/* Навигация для десктопа */}
           <nav className="hidden sm:flex space-x-[40px]">
-            <a href="/" className="hover:underline">
+            <a href="#services" className="hover:underline">
               Услуги
             </a>
-            <a href="/" className="hover:underline">
+            <a href="#contacts" className="hover:underline">
               Контакты
             </a>
             <button
@@ -117,7 +119,7 @@ const Header = ({ onOpenModal }) => {
         {/* Основная кнопка */}
         <button
           onClick={() => setIsFloatingMenuOpen(!isFloatingMenuOpen)}
-          className="w-12 h-12 rounded-full text-white flex items-center justify-center"
+          className="w-12 h-12 rounded-full bg-white text-white flex items-center justify-center"
         >
           <img src="/request.svg" alt="Контакты" className="w-12 h-12"/>
         </button>

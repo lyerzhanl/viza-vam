@@ -1,19 +1,18 @@
-import Hero from "../components/Hero.jsx";
-import Slider from "../components/Slider.jsx";
-import Services from "../components/Services.jsx";
-import Steps from "../components/Steps.jsx";
-import Documents from "../components/Documents.jsx";
-import Reviews from "../components/Reviews.jsx";
-import Faq from "../components/Faq.jsx";
-import CallTooAction from "../components/CallTooAction.jsx";
+import Hero from '../components/Hero.jsx';
+import Slider from '../components/Slider.jsx';
+import Services from '../components/Services.jsx';
+import Steps from '../components/Steps.jsx';
+import Documents from '../components/Documents.jsx';
+import Reviews from '../components/Reviews.jsx';
+import Faq from '../components/Faq.jsx';
+import CallTooAction from '../components/CallTooAction.jsx';
 
-// eslint-disable-next-line react/prop-types
-const LandingPage = ({ onOpenModal }) => {
+const LandingPage = ({ onOpenModal, heroRef, servicesRef }) => {
   return (
     <div>
-      <Hero onOpenModal={onOpenModal} />
+      <Hero ref={heroRef} onOpenModal={onOpenModal} />
       <Slider />
-      <Services onOpenModal={onOpenModal} />
+      <Services ref={servicesRef} onOpenModal={onOpenModal} />
       <Steps />
       <Documents />
       <Reviews />

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-orange-500 text-white">
+    <footer id="contacts" className="bg-orange-500 text-white">
       <div className="container mx-auto flex flex-col lg:flex-row gap-8 px-[5%] py-8 relative">
         {/* Первая колонка (Юридическая информация) */}
         <div className="w-full mt-16 lg:w-[50%] order-3 lg:order-1">
@@ -19,10 +19,6 @@ const Footer = () => {
 
         {/* Вторая и третья колонки (Услуги и Контакты) */}
         <div className="w-full lg:w-[50%] flex flex-row gap-8 order-1 lg:order-2">
-          {/* Вторая колонка (Услуги) */}
-          <div className="w-min lg:w-[50%]">
-            <h3 className="text-lg text-center lg:text-left">Услуги</h3>
-          </div>
 
           {/* Третья колонка (Контакты и иконки) */}
           <div className="w-full lg:w-[50%]">
@@ -48,16 +44,16 @@ const Footer = () => {
               </li>
             </ul>
             <div className="center-absolute flex justify-center lg:justify-start space-x-8 mt-4 lg:mt-16">
-              <a href="#" aria-label="Instagram" className="hover:opacity-80">
+              <a href="https://www.instagram.com/vizaminsk.by/profilecard/?igsh=YnRwZGh4Y3Jld2pj" aria-label="Instagram" className="hover:opacity-80">
                 <img src="/instagram.svg" alt="Instagram" className="w-8 h-8" />
               </a>
-              <a href="#" aria-label="Viber" className="hover:opacity-80">
+              <a href="viber://chat?number=375295648334" aria-label="Viber" className="hover:opacity-80">
                 <img src="/viber.svg" alt="Viber" className="w-8 h-8" />
               </a>
-              <a href="#" aria-label="WhatsApp" className="hover:opacity-80">
+              <a href="https://wa.me/375257654320" aria-label="WhatsApp" className="hover:opacity-80">
                 <img src="/whatsapp.svg" alt="WhatsApp" className="w-8 h-8" />
               </a>
-              <a href="#" aria-label="Telegram" className="hover:opacity-80">
+              <a href="https://t.me/+375295648334" aria-label="Telegram" className="hover:opacity-80">
                 <img src="/telegram.svg" alt="Telegram" className="w-8 h-8" />
               </a>
             </div>

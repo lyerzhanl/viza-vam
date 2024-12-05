@@ -58,7 +58,7 @@ const Slider = () => {
   return (
     <div className="relative w-full mx-auto overflow-hidden pl-[5%] sm:px-[5%]" {...swipeHandlers}>
       {/* Слайд */}
-      <div className="relative h-36 lg:h-64 overflow-hidden">
+      <div className="relative h-52 lg:h-64 overflow-hidden">
         <div
           className="flex transition-transform duration-700 rounded-[2px]"
           style={{
@@ -72,13 +72,13 @@ const Slider = () => {
               key={slide.id}
               className={`${
                 isLgScreen ? "w-[100%]" : "w-[85%]"
-              } sm:min-w-full h-36 lg:h-64 flex-shrink-0 relative mr-2 rounded-[2px]`}
+              } sm:min-w-full h-52 lg:h-64 flex-shrink-0 relative mr-2 rounded-[2px]`}
             >
               <img
                 src={slide.image}
                 alt={`Slide ${slide.id}`}
                 loading="lazy"
-                className="w-full h-36 lg:h-64 object-cover rounded-[2px]"
+                className="w-full h-52 lg:h-64 object-cover rounded-[2px]"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 rounded-[2px]">
                 <h2 className="text-white text-[20px] sm:text-4xl font-semibold">{slide.text}</h2>
@@ -89,7 +89,7 @@ const Slider = () => {
       </div>
 
       {/* Кнопки переключения */}
-      <div className="hidden sm:flex justify-center items-center mt-4 space-x-4">
+      <div className="flex justify-center items-center mt-4 space-x-4">
         <button
           onClick={prevSlide}
           className={`text-4xl transition-all duration-300 ${

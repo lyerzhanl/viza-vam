@@ -35,7 +35,7 @@ const Services = () => {
   const displayedCountries = isMobile && !showAllCountries ? countries.slice(0, 8) : countries;
 
   return (
-    <div className="px-[5%] pt-16 lg:pt-24">
+    <section id="services" className="px-[5%] pt-16 lg:pt-24">
       <h2 className="text-2xl lg:text-3xl font-medium mb-8 lg:mb-16">Помощь в подготовке документов для подачи</h2>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {displayedCountries.map((country, index) => (
@@ -72,7 +72,7 @@ const Services = () => {
           </button>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 
