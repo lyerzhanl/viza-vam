@@ -4,6 +4,18 @@ const Header = ({ onOpenModal, onScrollTo }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFloatingMenuOpen, setIsFloatingMenuOpen] = useState(false); // Управление плавающей кнопкой
 
+  const handleScrollTo = (id) => {
+    const target = document.querySelector(id);
+    if (target) {
+      const offset = id === "#services" ? 80 : 150;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: targetPosition - offset,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <>
       <header className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
@@ -60,7 +72,7 @@ const Header = ({ onOpenModal, onScrollTo }) => {
         <div className="text-black flex justify-between w-full z-[1] items-center p-4 px-[5%]">
           <div className="flex items-center">
             <a href="#" className="hover:underline">
-              <img src="/Logo.svg" alt="Logo" className="h-14 sm:h-20 mr-2"/>
+              <img src="/new-logo.svg" alt="Logo" className="h-14 sm:h-20 mr-2"/>
             </a>
           </div>
           {/* Бургер меню для мобильной версии */}
@@ -71,12 +83,12 @@ const Header = ({ onOpenModal, onScrollTo }) => {
           </div>
           {/* Навигация для десктопа */}
           <nav className="hidden sm:flex space-x-[40px]">
-            <a href="#services" className="hover:underline">
+            <button onClick={() => handleScrollTo("#services")} className="hover:underline">
               Услуги
-            </a>
-            <a href="#contacts" className="hover:underline">
+            </button>
+            <button onClick={() => handleScrollTo("#contacts")} className="hover:underline">
               Контакты
-            </a>
+            </button>
             <button
               onClick={onOpenModal}
               className="bg-customBlue hover:bg-blue-500 text-white py-2 px-[25px] rounded-[2px]"
@@ -105,19 +117,17 @@ const Header = ({ onOpenModal, onScrollTo }) => {
             >
               <img src="/close.svg" alt="Close"/>
             </button>
-            <button className="py-2" onClick={() => {
+            <button className="py-2 text-lg" onClick={() => {
+              handleScrollTo("#services")
               setIsMenuOpen(false);
             }}>
-              <a href="#services" className="text-lg">
                 Услуги
-              </a>
             </button>
-            <button className="py-2" onClick={() => {
+            <button className="py-2 text-lg" onClick={() => {
+              handleScrollTo("#contacts")
               setIsMenuOpen(false);
             }}>
-              <a href="#contacts" className="text-lg">
                 Контакты
-              </a>
             </button>
             <button
               className="bg-customBlue hover:bg-blue-500 text-white py-2 px-[25px] rounded-[2px] mt-4"
