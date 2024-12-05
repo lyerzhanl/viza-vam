@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 const countries = [
   { name: "Польша", img: "/poland.png", svg: "/poland_flag.svg" },
   { name: "Словения", img: "/slovenia.png", svg: "/slovenia_flag.svg" },
@@ -18,23 +20,58 @@ const countries = [
 ];
 
 const Services = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [showAllCountries, setShowAllCountries] = useState(false);
+
+  // Проверяем ширину экрана
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize(); // Проверяем на начальной загрузке
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Ограничиваем список стран для мобильных
+  const displayedCountries = isMobile && !showAllCountries ? countries.slice(0, 8) : countries;
+
   return (
-    <div className="px-[5%]">
-      <h2 className="text-3xl font-medium mb-16">Услуги</h2>
+    <div className="px-[5%] pt-16 lg:pt-24">
+      <h2 className="text-2xl lg:text-3xl font-medium mb-8 lg:mb-16">Помощь в подготовке документов для подачи</h2>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {countries.map((country, index) => (
-          <div key={index} className="bg-white border border-[#ECECEC] rounded-[2px] overflow-hidden shadow-sm">
-            <img src={country.img} alt={country.name} className="w-full object-cover" />
-            <div className="p-4">
-              <div className='flex flex-row gap-2'>
-                <img src={country.svg} alt={country.name} className="h-6"/>
+        {displayedCountries.map((country, index) => (
+          <div
+            key={index}
+            className="bg-white border border-[#ECECEC] rounded-lg lg:rounded-[2px] overflow-hidden shadow-sm"
+          >
+            <img
+              src={country.img}
+              alt={country.name}
+              className="w-full object-cover"
+            />
+            <div className="lg:p-4 p-2">
+              <div className="flex flex-row gap-2">
+                <img src={country.svg} alt={country.name} className="h-6" />
                 <p className="font-medium">{country.name}</p>
               </div>
-              {country.subtitle && <p className="text-sm text-gray-500">{country.subtitle}</p>}
+              {country.subtitle && (
+                <p className="text-sm">{country.subtitle}</p>
+              )}
             </div>
           </div>
         ))}
       </div>
+
+      {/* Кнопка "Еще больше услуг" */}
+      {isMobile && !showAllCountries && (
+        <div className="mt-8 text-center">
+          <button
+            onClick={() => setShowAllCountries(true)}
+            className="bg-customBlue w-full hover:bg-blue-500 text-white py-3 rounded-[2px] text-[16px]"
+          >
+            Еще больше стран
+          </button>
+        </div>
+      )}
     </div>
   );
 };

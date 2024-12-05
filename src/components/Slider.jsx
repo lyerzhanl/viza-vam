@@ -1,26 +1,41 @@
-import { useState } from "react";
-import {CarouselButton} from "../constants/Icons.jsx";
+import { useState, useEffect } from "react";
+import { useSwipeable } from "react-swipeable";
+import { CarouselButton } from "../constants/Icons.jsx";
 
 const slides = [
   {
     id: 1,
-    image: "/slider-1.png",
-    text: "ХОЧЕШЬ В ИТАЛИЮ? ЛЕГКО!",
+    image: "/1.jpg",
+    text: "Хочешь в Испанию? Легко!",
   },
   {
     id: 2,
-    image: "/slider-1.png",
-    text: "ХОЧЕШЬ ВО ФРАНЦИЮ? ЛЕГКО!",
+    image: "/2.png",
+    text: "11% семье из 3-х человек",
   },
   {
     id: 3,
-    image: "/slider-1.png",
-    text: "ХОЧЕШЬ В ГЕРМАНИЮ? ЛЕГКО!",
+    image: "/3.png",
+    text: "13% скидка для семьи от 4-х человек",
+  },
+  {
+    id: 4,
+    image: "/4.png",
+    text: "5% скидка при повторном обращении",
   },
 ];
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLgScreen, setIsLgScreen] = useState(false);
+
+  // Обновление состояния для экранов
+  useEffect(() => {
+    const handleResize = () => setIsLgScreen(window.innerWidth >= 1024);
+    handleResize(); // Проверяем при загрузке
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const prevSlide = () => {
     if (currentIndex > 0) {
@@ -34,29 +49,39 @@ const Slider = () => {
     }
   };
 
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: nextSlide,
+    onSwipedRight: prevSlide,
+    trackMouse: true,
+  });
+
   return (
-    <div className="relative w-full mx-auto overflow-hidden top-[-78px] px-[5%]">
+    <div className="relative w-full mx-auto overflow-hidden pl-[5%] sm:px-[5%]" {...swipeHandlers}>
       {/* Слайд */}
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-36 lg:h-64 overflow-hidden">
         <div
-          className="flex transition-transform duration-700"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          className="flex transition-transform duration-700 rounded-[2px]"
+          style={{
+            transform: `translateX(calc(-${currentIndex * (isLgScreen ? 100 : 85)}% - ${
+              currentIndex * 8
+            }px))`,
+          }}
         >
           {slides.map((slide) => (
             <div
               key={slide.id}
-              className="min-w-full h-64 flex-shrink-0 relative"
+              className={`${
+                isLgScreen ? "w-[100%]" : "w-[85%]"
+              } sm:min-w-full h-36 lg:h-64 flex-shrink-0 relative mr-2 rounded-[2px]`}
             >
               <img
                 src={slide.image}
                 alt={`Slide ${slide.id}`}
                 loading="lazy"
-                className="w-full h-64 object-cover rounded-[2px]"
+                className="w-full h-36 lg:h-64 object-cover rounded-[2px]"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                <h2 className="text-white text-4xl font-semibold">
-                  {slide.text}
-                </h2>
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 rounded-[2px]">
+                <h2 className="text-white text-[20px] sm:text-4xl font-semibold">{slide.text}</h2>
               </div>
             </div>
           ))}
@@ -64,13 +89,11 @@ const Slider = () => {
       </div>
 
       {/* Кнопки переключения */}
-      <div className="flex justify-center items-center mt-4 space-x-4">
+      <div className="hidden sm:flex justify-center items-center mt-4 space-x-4">
         <button
           onClick={prevSlide}
           className={`text-4xl transition-all duration-300 ${
-            currentIndex > 0
-              ? "text-[#F86F00] text-5xl"
-              : "text-[#595959]"
+            currentIndex > 0 ? "text-[#F86F00] text-5xl" : "text-[#595959]"
           }`}
         >
           <CarouselButton color={currentIndex > 0 ? "#F86F00" : "#595959"} />
@@ -78,12 +101,13 @@ const Slider = () => {
         <button
           onClick={nextSlide}
           className={`text-4xl transition-all duration-300 ${
-            currentIndex < slides.length - 1
-              ? "text-[#F86F00] text-5xl"
-              : "text-[#595959]"
+            currentIndex < slides.length - 1 ? "text-[#F86F00] text-5xl" : "text-[#595959]"
           }`}
         >
-          <CarouselButton isRight={true} color={currentIndex < slides.length - 1 ? "#F86F00" : "#595959"} />
+          <CarouselButton
+            isRight={true}
+            color={currentIndex < slides.length - 1 ? "#F86F00" : "#595959"}
+          />
         </button>
       </div>
     </div>

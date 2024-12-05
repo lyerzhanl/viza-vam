@@ -1,29 +1,37 @@
-const Hero = () => {
+const Hero = ({ onOpenModal }) => {
   return (
-    <section className="md:px-16 mt-[40px] z-0 flex flex-col md:flex-row items-center md:items-start px-[5%] relative">
+    <section className="lg:px-16 lg:mt-[40px] mt-[170px] pb-32 lg:pb-0 z-0 flex flex-col lg:flex-row items-center lg:items-start relative">
       {/* Левая часть */}
-      <div className="absolute left-0 top-1/3 md:w-1/2 text-left md:text-left z-10 px-[5%]">
-        <h1 className="text-2xl md:text-6xl font-semibold text-black">
+      <div className="lg:absolute left-0 top-1/3 w-full lg:w-1/2 text-left lg:text-left z-10 px-[5%]">
+        <h1 className="text-4xl lg:text-6xl font-semibold text-black">
           ВИЗОВЫЙ<br />ЦЕНТР МИНСК
         </h1>
         <p
-          className="mt-4 pl-6 text-lg md:text-3xl text-[#F86F00] font-caveat transform rotate-[-4deg] opacity-65"
+          className="lg:mt-4 pl-6 text-xl lg:text-3xl text-[#F86F00] font-caveat transform rotate-[-4deg] opacity-65"
         >
           Помогаем превратить мечты в реальность
         </p>
       </div>
 
       {/* Правая часть */}
-      <div className="w-full flex items-center mt-4 md:mt-0 relative z-5">
+      <div className="w-full lg:flex items-center -mt-[30%] lg:mt-0 relative z-5">
         {/* Изображение */}
         <img
           src="/banner-hero.svg"
           alt="Героическое изображение"
-          className="relative left-[30%] w-full md:w-[800px]"
+          className="relative lg:top-0 lg:left-[30%] lg:w-[55%]"
         />
 
+        <div className="lg:hidden w-full px-[5%] pb-20">
+          <button
+            onClick={onOpenModal}
+            className="relative w-[100%] bg-customBlue hover:bg-blue-500 text-white py-3 rounded-[2px]">
+            Оформить заявку
+          </button>
+        </div>
+
         {/* Список преимуществ */}
-        <ul className="absolute top-1/2 right-[70px] transform -translate-y-1/2 space-y-4 text-left p-4 rounded-md">
+        <ul className="lg:absolute top-1/2 right-[4%] lg:transform lg:-translate-y-1/2 space-y-4 text-left p-4 rounded-md">
           <li className="flex items-center text-lg">
             <img src="/check.svg" alt="Check" className="h-5 w-5 mr-2"/>
             <p className="font-[500] text-[20px]">

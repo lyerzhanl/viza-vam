@@ -7,17 +7,18 @@ import Reviews from "../components/Reviews.jsx";
 import Faq from "../components/Faq.jsx";
 import CallTooAction from "../components/CallTooAction.jsx";
 
-const LandingPage = () => {
+// eslint-disable-next-line react/prop-types
+const LandingPage = ({ onOpenModal }) => {
   return (
     <div>
-      <Hero />
+      <Hero onOpenModal={onOpenModal} />
       <Slider />
-      <Services />
+      <Services onOpenModal={onOpenModal} />
       <Steps />
       <Documents />
       <Reviews />
       <Faq />
-      <CallTooAction />
+      <CallTooAction onOpenModal={onOpenModal} />
     </div>
   );
 };
