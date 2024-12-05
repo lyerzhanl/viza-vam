@@ -99,15 +99,32 @@ const Header = ({ onOpenModal, onScrollTo }) => {
             }`}
             onClick={(e) => e.stopPropagation()}
           >
-            <a href="/" className="py-2 text-lg">
-              Услуги
-            </a>
-            <a href="/" className="py-2 text-lg">
-              Контакты
-            </a>
+            <button
+              className="self-end mb-4"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <img src="/close.svg" alt="Close"/>
+            </button>
+            <button className="py-2" onClick={() => {
+              setIsMenuOpen(false);
+            }}>
+              <a href="#services" className="text-lg">
+                Услуги
+              </a>
+            </button>
+            <button className="py-2" onClick={() => {
+              setIsMenuOpen(false);
+            }}>
+              <a href="#contacts" className="text-lg">
+                Контакты
+              </a>
+            </button>
             <button
               className="bg-customBlue hover:bg-blue-500 text-white py-2 px-[25px] rounded-[2px] mt-4"
-              onClick={onOpenModal}
+              onClick={() => {
+                onOpenModal();
+                setIsMenuOpen(false);
+              }}
             >
               Оформить заявку
             </button>
