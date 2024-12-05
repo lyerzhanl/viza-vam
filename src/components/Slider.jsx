@@ -81,7 +81,7 @@ const Slider = () => {
                 className="w-full h-52 lg:h-64 object-cover rounded-[2px]"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 rounded-[2px]">
-                <h2 className="text-white text-[20px] sm:text-4xl font-semibold">{slide.text}</h2>
+                <h2 className="text-white text-center text-[20px] sm:text-4xl font-semibold">{slide.text}</h2>
               </div>
             </div>
           ))}
