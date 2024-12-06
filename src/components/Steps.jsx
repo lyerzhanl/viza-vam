@@ -34,9 +34,9 @@ const Steps = () => {
         >
           <img src="/step-2.svg" alt="Документы" className="h-14 lg:h-20"/>
           <p className="text-sm font-medium px-6 lg:px-0">
-            <span className="block lg:hidden">Проверка<br />документов</span> {/* Текст для телефона */}
+            <span className="block lg:hidden">Проверка<br />документов<br />(в офисе/удаленно)</span> {/* Текст для телефона */}
             <span className="hidden lg:block">
-              Личная встреча в офисе и<br />проверка документов
+              Личная встреча в офисе и<br />проверка документов<br />(в офисе/удаленно)
             </span>
           </p>
         </div>

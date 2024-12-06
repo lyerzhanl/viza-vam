@@ -32,7 +32,7 @@ const Documents = () => {
           <li className="flex items-center">
             <img src="/check-light.svg" alt="Document" className="mr-4"/>
             <div>
-              <p className="text-sm lg:text-base font-medium">Справка о состоянии счёта</p>
+              <p className="text-sm lg:text-base font-medium">Выписка о состоянии счёта</p>
             </div>
           </li>
           <li className="flex items-center">

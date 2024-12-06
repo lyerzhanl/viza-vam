@@ -28,7 +28,7 @@ const Header = ({ onOpenModal, onScrollTo }) => {
             пр-т Победителей 17, офис 214
           </span>
             <br/>
-            <span className="sm:ml-6 font-light text-[10px] sm:text-base">09:00-18:00</span>
+            <span className="sm:ml-6 font-light text-[10px] sm:text-base">09:00-19:00</span>
           </div>
 
           <div
