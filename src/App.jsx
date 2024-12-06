@@ -29,11 +29,6 @@ const App = () => {
       <div className="flex flex-col min-h-screen">
         <Header
           onOpenModal={handleOpenModal}
-          onScrollTo={(section) => {
-            if (section === 'hero') handleScrollTo(heroRef);
-            else if (section === 'services') handleScrollTo(servicesRef);
-            else if (section === 'contacts') handleScrollTo(footerRef);
-          }}
         />
         <main className="flex-grow z-1">
           <Routes>
@@ -42,15 +37,13 @@ const App = () => {
               element={
                 <LandingPage
                   onOpenModal={handleOpenModal}
-                  heroRef={heroRef}
-                  servicesRef={servicesRef}
                 />
               }
             />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
-        <Footer ref={footerRef} />
+        <Footer />
         <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
       </div>
     </Router>

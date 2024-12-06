@@ -1,4 +1,5 @@
 import { useState } from "react";
+import InputMask from "react-input-mask";
 
 const Modal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "" });
@@ -18,21 +19,9 @@ const Modal = ({ isOpen, onClose }) => {
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const formatPhone = (phone) => {
-    const digits = phone.replace(/\D/g, "");
-    if (digits.length <= 3) return `+${digits}`;
-    if (digits.length <= 5) return `+${digits.slice(0, 3)} ${digits.slice(3)}`;
-    if (digits.length <= 8)
-      return `+${digits.slice(0, 3)} ${digits.slice(3, 5)} ${digits.slice(5)}`;
-    return `+${digits.slice(0, 3)} ${digits.slice(3, 5)} ${digits.slice(
-      5,
-      8
-    )}-${digits.slice(8, 10)}-${digits.slice(10, 12)}`;
-  };
-
   const handlePhoneInput = (e) => {
-    const formattedPhone = formatPhone(e.target.value);
-    setFormData((prev) => ({ ...prev, phone: formattedPhone }));
+    const { value } = e.target;
+    setFormData((prev) => ({ ...prev, phone: value }));
     setErrors((prev) => ({ ...prev, phone: "" }));
   };
 
@@ -54,36 +43,40 @@ const Modal = ({ isOpen, onClose }) => {
     }
 
     try {
+      const formattedPhone = phone.replace(/\D/g, "");
       setIsSubmitting(true);
-
+      console.log("Отправка данных", JSON.stringify({
+        u_name: name,
+        u_phone: formattedPhone,
+        u_email: email,
+        source: "заявка с visavam.by лэндинга"
+      }, null, 2));
       // Запрос в API
-      const response = await fetch("https://api.u-on.ru/doc", {
+      const response = await fetch("https://api.u-on.ru/tCjYa5IOpS143s3V6w4j/lead/create.json", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer tCjYa5IOpS143s3V6w4j",
         },
         body: JSON.stringify({
-          client_name: name,
-          client_phone: phone,
-          client_email: email,
-          datetime: new Date().toLocaleString("ru-RU", {
-            timeZone: "Europe/Moscow",
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-          }),
+          u_name: name,
+          u_phone: formattedPhone,
+          u_email: email,
+          source: "заявка с visavam.by лэндинга",
         }),
       });
 
+      const responseData = await response.json();
+
+      console.log("Ответ API", responseData);
+
       if (!response.ok) {
-        throw new Error("Ошибка отправки данных");
+        console.log("Ошибка в ответе API", responseData);
+        throw new Error(responseData?.message || "Ошибка отправки данных");
       }
 
       setMessage("Заявка успешно отправлена. С Вами свяжутся в ближайшее время.");
     } catch (error) {
+      console.log("Ошибка отправки данных", error);
       setMessage(
         "Произошла ошибка при отправке заявки. Приносим извинения за неудобства. Попробуйте повторно позже."
       );
@@ -124,8 +117,8 @@ const Modal = ({ isOpen, onClose }) => {
             )}
           </div>
           <div className="mb-4">
-            <input
-              type="tel"
+            <InputMask
+              mask="+999 99 999-99-99"
               name="phone"
               placeholder="Телефон*"
               value={formData.phone}

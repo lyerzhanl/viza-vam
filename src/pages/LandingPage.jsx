@@ -7,12 +7,12 @@ import Reviews from '../components/Reviews.jsx';
 import Faq from '../components/Faq.jsx';
 import CallTooAction from '../components/CallTooAction.jsx';
 
-const LandingPage = ({ onOpenModal, heroRef, servicesRef }) => {
+const LandingPage = ({ onOpenModal }) => {
   return (
     <div>
-      <Hero ref={heroRef} onOpenModal={onOpenModal} />
+      <Hero onOpenModal={onOpenModal} />
       <Slider />
-      <Services ref={servicesRef} onOpenModal={onOpenModal} />
+      <Services onOpenModal={onOpenModal} />
       <Steps />
       <Documents />
       <Reviews />
