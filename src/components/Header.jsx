@@ -25,7 +25,7 @@ const Header = ({ onOpenModal, onScrollTo }) => {
             className="bg-customBlue text-white block sm:flex items-center sm:px-4 py-2 w-[54%] pl-[5%] clip-path-mobile clip-path-desktop"
           >
           <span className="font-light text-[10px] sm:text-base">
-            пр-т Победителей 17, офис 214
+            пр-т Победителей 17, офис 1204
           </span>
             <br/>
             <span className="sm:ml-6 font-light text-[10px] sm:text-base">09:00-19:00</span>

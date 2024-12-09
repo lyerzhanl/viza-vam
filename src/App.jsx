@@ -1,52 +1,64 @@
 import './index.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Route, Routes, useLocation, useNavigate} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import NotFoundPage from './components/NotFoundPage';
 import Modal from './components/Modal';
-import { useRef, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 const App = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const heroRef = useRef(null); // Ссылка на верхнюю часть
-  const servicesRef = useRef(null); // Ссылка на Services
-  const footerRef = useRef(null); // Ссылка на Footer
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleOpenModal = () => setModalOpen(true);
-  const handleCloseModal = () => setModalOpen(false);
-
-  // Функция прокрутки
-  const handleScrollTo = (ref) => {
-    ref?.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+  const handleOpenModal = () => {
+    setModalOpen(true);
+    navigate('/request');
   };
 
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    navigate('/');
+  };
+
+  // Открытие модального окна при маршруте `/request`
+  useEffect(() => {
+    if (location.pathname === '/request') {
+      setModalOpen(true);
+    } else {
+      setModalOpen(false);
+    }
+  }, [location.pathname]);
+
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        <Header
-          onOpenModal={handleOpenModal}
-        />
-        <main className="flex-grow z-1">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <LandingPage
-                  onOpenModal={handleOpenModal}
-                />
-              }
-            />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </main>
-        <Footer />
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
-      </div>
-    </Router>
+    <div className="flex flex-col min-h-screen">
+      <Header onOpenModal={handleOpenModal}/>
+      <main className="flex-grow z-1">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <LandingPage
+                onOpenModal={handleOpenModal}
+              />
+            }
+          />
+          <Route
+            path="/request"
+            element={
+              <LandingPage
+                onOpenModal={handleOpenModal}
+              />
+            }
+          />
+          <Route path="*" element={<NotFoundPage/>}/>
+        </Routes>
+      </main>
+      <Footer/>
+      {/* Модальное окно */}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}/>
+    </div>
   );
 };
 

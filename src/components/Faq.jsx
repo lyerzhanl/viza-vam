@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 
 const faqData = [
   {
@@ -77,7 +77,7 @@ const FAQ = () => {
 
   return (
     <div className="pt-12 px-[5%]">
-      <h2 className="text-2xl lg:text-3xl font-medium mb-16">Вопрос-ответ</h2>
+      <h2 className="text-2xl lg:text-3xl font-medium mb-8 lg:mb-16">Вопрос-ответ</h2>
       <div className="space-y-4">
         {faqData.map((faq, index) => (
           <div key={index} className="border border-orange-500 rounded-t-[2px]">
@@ -106,7 +106,7 @@ const FAQ = () => {
             {openIndex === index && (
               <div
                 className="bg-white py-4 px-6 text-gray-700"
-                dangerouslySetInnerHTML={{ __html: faq.answer }}
+                dangerouslySetInnerHTML={{__html: faq.answer}}
               />
             )}
           </div>

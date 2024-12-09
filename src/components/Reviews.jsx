@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { useSwipeable } from "react-swipeable";
-import { CarouselButton } from "../constants/Icons.jsx";
+import {useEffect, useState} from "react";
+import {useSwipeable} from "react-swipeable";
+import {CarouselButton} from "../constants/Icons.jsx";
 
 const reviews = [
   {
@@ -44,7 +44,7 @@ const Reviews = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        setVisibleCards(4);
+        setVisibleCards(3.5);
       } else {
         setVisibleCards(1);
       }
@@ -77,7 +77,7 @@ const Reviews = () => {
 
   return (
     <div className="py-12 px-[5%]" {...swipeHandlers}>
-      <h2 className="text-2xl lg:text-3xl font-medium mb-8 lg:mb-16 text-center">
+      <h2 className="text-2xl lg:text-3xl font-medium mb-8 lg:mb-16">
         Отзывы наших клиентов
       </h2>
       <div className="relative overflow-hidden">
@@ -112,8 +112,9 @@ const Reviews = () => {
             currentIndex === 0 && "opacity-50 cursor-not-allowed"
           }`}
           disabled={currentIndex === 0}
+          aria-label="Назад"
         >
-          <CarouselButton color={currentIndex > 0 ? "#F86F00" : "#595959"} />
+          <CarouselButton color={currentIndex > 0 ? "#F86F00" : "#595959"}/>
         </button>
         <button
           onClick={nextSlide}
@@ -122,6 +123,7 @@ const Reviews = () => {
             "opacity-50 cursor-not-allowed"
           }`}
           disabled={currentIndex >= reviews.length - visibleCards}
+          aria-label="Вперед"
         >
           <CarouselButton
             isRight={true}

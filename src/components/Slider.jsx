@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { useSwipeable } from "react-swipeable";
-import { CarouselButton } from "../constants/Icons.jsx";
+import {useEffect, useState} from "react";
+import {useSwipeable} from "react-swipeable";
+import {CarouselButton} from "../constants/Icons.jsx";
 
 const slides = [
   {
@@ -78,7 +78,10 @@ const Slider = () => {
                 src={slide.image}
                 alt={`Slide ${slide.id}`}
                 loading="lazy"
-                className="w-full h-52 lg:h-64 object-cover rounded-[2px]"
+                className={`w-full h-52 lg:h-64 object-cover rounded-[2px]`}
+                style={{
+                  objectPosition: slide.id === 2 ? "50% 71%" : "center",
+                }}
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 rounded-[2px]">
                 <h2 className="text-white text-center text-[20px] sm:text-4xl font-semibold">{slide.text}</h2>
@@ -95,14 +98,16 @@ const Slider = () => {
           className={`text-4xl transition-all duration-300 ${
             currentIndex > 0 ? "text-[#F86F00] text-5xl" : "text-[#595959]"
           }`}
+          aria-label="Назад"
         >
-          <CarouselButton color={currentIndex > 0 ? "#F86F00" : "#595959"} />
+          <CarouselButton color={currentIndex > 0 ? "#F86F00" : "#595959"}/>
         </button>
         <button
           onClick={nextSlide}
           className={`text-4xl transition-all duration-300 ${
             currentIndex < slides.length - 1 ? "text-[#F86F00] text-5xl" : "text-[#595959]"
           }`}
+          aria-label="Вперед"
         >
           <CarouselButton
             isRight={true}

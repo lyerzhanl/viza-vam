@@ -3,7 +3,7 @@ const Footer = () => {
     <footer id="contacts" className="bg-orange-500 text-white">
       <div className="container mx-auto flex flex-col lg:flex-row gap-8 px-[5%] py-8 relative">
         {/* Первая колонка (Юридическая информация) */}
-        <div className="w-full mt-16 lg:w-[50%] order-3 lg:order-1">
+        <div className="w-full mt-12 lg:w-[50%] order-3 lg:order-1">
           <h3 className="text-sm">{`Общество с ограниченной ответственностью "Визовый Сервис"`}</h3>
           <p className="text-sm">УНП 193637145</p>
           <p className="text-sm mb-4">Гос. регистрация N 193637145 от 22.07.2022 Минский горисполком</p>
@@ -25,25 +25,32 @@ const Footer = () => {
             <h3 className="text-lg mb-4">Контакты</h3>
             <ul className="text-sm space-y-2">
               <li className="flex items-center">
-                <img src="/phone-white.svg" className="mr-2" />
+                <img src="/phone-white.svg" alt="Телефон" className="mr-2" />
                 <a href="tel:+375296800620" className="hover:underline">+375296800620</a>
               </li>
               <li className="flex items-center">
-                <img src="/email-white.svg" className="mr-2" />
+                <img src="/email-white.svg" alt="Почта" className="mr-2" />
                 <a href="mailto:info@vizaminsk.by" className="hover:underline">info@vizaminsk.by</a>
               </li>
               <li className="flex items-center">
-                <img src="/location-white.svg" className="mr-2" />
-                Минск, пр. Победителей 17, офис 1204<br />(метро Немига)
+                <img src="/location-white.svg" alt="Местоположение" className="mr-2" />
+                <a
+                  href="https://www.google.com/maps?q=Минск,+пр.+Победителей+17"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  Минск, пр. Победителей 17, офис 1204<br />(метро Немига)
+                </a>
               </li>
               <li className="flex items-center">
-                <img src="/location-white.svg" className="mr-2 opacity-0" />
+                <img src="/location-white.svg" aria-hidden={true} className="mr-2 opacity-0" />
                 Пн-Пт: 09:00 - 19:00 <br />
                 Суббота: 10:00 - 14:00 <br />
                 Воскресенье: выходной
               </li>
             </ul>
-            <div className="center-absolute flex justify-center lg:justify-start space-x-8 mt-4 lg:mt-16">
+            <div className="center-absolute flex justify-center lg:justify-start space-x-8 lg:mt-16">
               <a href="https://www.instagram.com/vizaminsk.by/profilecard/?igsh=YnRwZGh4Y3Jld2pj" aria-label="Instagram" className="hover:opacity-80">
                 <img src="/instagram.svg" alt="Instagram" className="w-8 h-8" />
               </a>

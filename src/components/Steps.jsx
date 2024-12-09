@@ -4,7 +4,8 @@ const Steps = () => {
       <h2 className="text-2xl lg:text-3xl font-medium mb-8 lg:mb-16">3 простых шага до мечты</h2>
 
       {/* Контейнер шагов */}
-      <div style={{margin: "0 auto"}} className="flex flex-col max-w-[320px] lg:max-w-none lg:flex-row items-center lg:justify-center space-x-[-10px] lg:space-y-0 relative">
+      <div style={{margin: "0 auto"}}
+           className="flex flex-col max-w-[320px] lg:max-w-none lg:flex-row items-center lg:justify-center space-x-[-10px] lg:space-y-0 relative">
         {/* Step 1 */}
         <div
           className="flex flex-col lg:rotate-[10deg] items-center justify-center text-center bg-[#FAFAFA] rounded-[2px] lg:w-[12%] py-5 relative self-start"
@@ -34,9 +35,10 @@ const Steps = () => {
         >
           <img src="/step-2.svg" alt="Документы" className="h-14 lg:h-20"/>
           <p className="text-sm font-medium px-6 lg:px-0">
-            <span className="block lg:hidden">Проверка<br />документов<br />(в офисе/удаленно)</span> {/* Текст для телефона */}
+            <span
+              className="block lg:hidden">Проверка<br/>документов<br/>(в офисе/удаленно)</span> {/* Текст для телефона */}
             <span className="hidden lg:block">
-              Личная встреча в офисе и<br />проверка документов<br />(в офисе/удаленно)
+              Проверка документов<br/>(в офисе/удаленно)
             </span>
           </p>
         </div>
