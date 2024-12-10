@@ -1,5 +1,7 @@
 User-agent: *
-Disallow: /request      # Запрещаем индексировать route для модального окна
-Disallow: /404          # Запрещаем индексировать страницу 404
+Disallow: /request
+Disallow: /404
 
-Allow: /               # Разрешаем индексировать все остальное
+Allow: /
+
+Sitemap: https://visavam.by/sitemap.xml
