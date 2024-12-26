@@ -89,7 +89,7 @@ const Modal = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-8 rounded-[2px] shadow-lg max-w-md w-full relative">
         <button
-          className="absolute top-2 right-2 text-[#F86F00] font-bold text-lg"
+          className="absolute top-[15px] right-[15px] text-[#F86F00] font-bold text-lg"
           onClick={onClose}
         >
           <img src="/close.svg" alt="Закрыть" />
@@ -103,76 +103,76 @@ const Modal = ({ isOpen, onClose }) => {
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <input
-              type="text"
-              name="name"
-              placeholder="Имя*"
-              value={formData.name}
-              onChange={handleInputChange}
-              className={`w-full border ${
-                errors.name ? "border-red-500" : "border-gray-300"
-              } rounded-[2px] p-2`}
+                type="text"
+                name="name"
+                placeholder="Имя*"
+                value={formData.name}
+                onChange={handleInputChange}
+                className={`w-full border ${
+                    errors.name ? "border-red-500" : "border-gray-300"
+                } rounded-[2px] p-2`}
             />
             {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
             )}
           </div>
           <div className="mb-4">
             <InputMask
-              mask="+999 99 999-99-99"
-              name="phone"
-              placeholder="Телефон*"
-              value={formData.phone}
-              onChange={handlePhoneInput}
-              className={`w-full border ${
-                errors.phone ? "border-red-500" : "border-gray-300"
-              } rounded-[2px] p-2`}
+                mask="+999 99 999-99-99"
+                name="phone"
+                placeholder="Телефон*"
+                value={formData.phone}
+                onChange={handlePhoneInput}
+                className={`w-full border ${
+                    errors.phone ? "border-red-500" : "border-gray-300"
+                } rounded-[2px] p-2`}
             />
             {errors.phone && (
-              <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
             )}
           </div>
           <div className="mb-1">
             <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full border border-gray-300 rounded-[2px] p-2"
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full border border-gray-300 rounded-[2px] p-2"
             />
           </div>
-          <div className="flex items-center mb-3">
+          <div className="flex items-center mb-[30px] mt-[10px]">
             <input
-              type="checkbox"
-              id="agreement"
-              checked={isAgreed}
-              onChange={handleCheckboxChange}
-              className="mr-2 accent-[#F86F00]"
+                type="checkbox"
+                id="agreement"
+                checked={isAgreed}
+                onChange={handleCheckboxChange}
+                className="mr-2 accent-[#F86F00]"
             />
             <label htmlFor="agreement" className="text-sm">
               Я согласен с{" "}
               <a
-                href="/public-offer.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-[#F86F00]"
+                  href="/public-offer.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-[#F86F00]"
               >
                 Публичной офертой
               </a>
             </label>
           </div>
           {errors.agreement && (
-            <p className="text-red-500 text-sm mt-1 mb-4">{errors.agreement}</p>
+              <p className="text-red-500 text-sm mt-1 mb-4">{errors.agreement}</p>
           )}
           <div className="flex justify-center">
             <button
-              type="submit"
-              className={`py-3 px-4 rounded-[2px] w-[220px] ${
-                isSubmitting
-                  ? "bg-gray-500 cursor-not-allowed"
-                  : "bg-customBlue hover:bg-blue-700 text-white"
-              }`}
-              disabled={isSubmitting}
+                type="submit"
+                className={`py-3 px-4 rounded-[2px] w-[220px] ${
+                    isSubmitting
+                        ? "bg-gray-500 cursor-not-allowed"
+                        : "bg-customBlue hover:bg-blue-700 text-white"
+                }`}
+                disabled={isSubmitting}
             >
               {isSubmitting ? "Отправка..." : "Оформить заявку"}
             </button>

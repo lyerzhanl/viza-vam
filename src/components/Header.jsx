@@ -32,39 +32,39 @@ const Header = ({ onOpenModal, onScrollTo }) => {
           </div>
 
           <div
-            className="bg-orange-500 text-white items-center justify-end px-4 py-2 sm:flex hidden"
-            style={{width: "48%", paddingRight: "5%"}}
+              className="bg-orange-500 text-white items-center justify-end px-4 py-2 sm:flex hidden"
+              style={{width: "48%", paddingRight: "5%"}}
           >
+            <a href="tel:+375296800620" className="mr-[15px]">
+              +375296800620
+            </a>
+            <a href="tel:+375293734870" className="mr-[30px]">
+              +375293734870
+            </a>
             <a
-              href="https://wa.me/375257654320"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-2"
+                href="https://wa.me/375257654320"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-2"
             >
               <img src="/whatsapp.svg" alt="WhatsApp" className="h-5"/>
             </a>
             <a
-              href="viber://chat?number=375295648334"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-2"
+                href="viber://chat?number=375295648334"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-2"
             >
               <img src="/viber.svg" alt="Viber" className="h-5"/>
             </a>
             <a
-              href="https://t.me/+375295648334"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-2"
+                href="https://t.me/+375295648334"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-2"
             >
               <img src="/telegram.svg" alt="Telegram" className="h-5"/>
             </a>
-            {/*<a href="tel:+375296800620" className="mr-2">*/}
-            {/*  +375296800620*/}
-            {/*</a>*/}
-            {/*<a href="tel:+375293734870" className="mr-2">*/}
-            {/*  +375293734870*/}
-            {/*</a>*/}
             {/*<a href="mailto:l336906097@gmail.com" className="mr-2">*/}
             {/*  <img src="/mail.svg" alt="E-Mail" className="h-5"/>*/}
             {/*</a>*/}
@@ -74,7 +74,7 @@ const Header = ({ onOpenModal, onScrollTo }) => {
         {/* Логотип и навигация */}
         <div className="text-black flex justify-between w-full z-[1] items-center p-4 px-[5%]">
           <div className="flex items-center">
-            <a href="#" className="hover:underline">
+          <a href="#" className="hover:underline">
               <img src="/new-logo.svg" alt="Logo" className="h-14 sm:h-20 mr-2"/>
             </a>
           </div>

@@ -16,7 +16,7 @@ const Footer = () => {
                 <img src="/phone-white.svg" alt="Телефон" className="mr-2" />
                 <div>
                   <a href="tel:+375296800620" className="hover:underline">+375296800620</a><br />
-                  {/*<a href="tel:+375291234567" className="hover:underline">+375291234567</a>*/}
+                  <a href="tel:+375291234567" className="hover:underline">+375291234567</a>
                 </div>
               </li>
               <li className="flex items-center">
