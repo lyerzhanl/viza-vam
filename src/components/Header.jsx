@@ -59,12 +59,15 @@ const Header = ({ onOpenModal, onScrollTo }) => {
             >
               <img src="/telegram.svg" alt="Telegram" className="h-5"/>
             </a>
-            <a href="tel:+375296800620" className="mr-2">
-              <img src="/phone.svg" alt="Phone" className="h-5"/>
-            </a>
-            <a href="mailto:l336906097@gmail.com" className="mr-2">
-              <img src="/mail.svg" alt="E-Mail" className="h-5"/>
-            </a>
+            {/*<a href="tel:+375296800620" className="mr-2">*/}
+            {/*  +375296800620*/}
+            {/*</a>*/}
+            {/*<a href="tel:+375293734870" className="mr-2">*/}
+            {/*  +375293734870*/}
+            {/*</a>*/}
+            {/*<a href="mailto:l336906097@gmail.com" className="mr-2">*/}
+            {/*  <img src="/mail.svg" alt="E-Mail" className="h-5"/>*/}
+            {/*</a>*/}
           </div>
         </div>
 
@@ -118,16 +121,16 @@ const Header = ({ onOpenModal, onScrollTo }) => {
               <img src="/close.svg" alt="Close"/>
             </button>
             <button className="py-2 text-lg" onClick={() => {
-              handleScrollTo("#services")
+              handleScrollTo("#services");
               setIsMenuOpen(false);
             }}>
-                Услуги
+              Услуги
             </button>
             <button className="py-2 text-lg" onClick={() => {
-              handleScrollTo("#contacts")
+              handleScrollTo("#contacts");
               setIsMenuOpen(false);
             }}>
-                Контакты
+              Контакты
             </button>
             <button
               className="bg-customBlue hover:bg-blue-500 text-white py-2 px-[25px] rounded-[2px] mt-4"
@@ -138,6 +141,13 @@ const Header = ({ onOpenModal, onScrollTo }) => {
             >
               Оформить заявку
             </button>
+            {/* Номера телефонов */}
+            {/*<a href="tel:+375296800620" className="py-2 text-lg">*/}
+            {/*  +375296800620*/}
+            {/*</a>*/}
+            {/*<a href="tel:+375293734870" className="py-2 text-lg">*/}
+            {/*  +375293734870*/}
+            {/*</a>*/}
           </div>
         </div>
       </header>
@@ -178,12 +188,12 @@ const Header = ({ onOpenModal, onScrollTo }) => {
             >
               <img src="/telegram.svg" alt="Telegram" className="w-12 h-12"/>
             </a>
-            <a
-              href="mailto:l336906097@gmail.com"
-              className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center"
-            >
-              <img src="/email.svg" alt="Email" className="w-12 h-12"/>
-            </a>
+            {/*<a*/}
+            {/*  href="mailto:l336906097@gmail.com"*/}
+            {/*  className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center"*/}
+            {/*>*/}
+            {/*  <img src="/email.svg" alt="Email" className="w-12 h-12"/>*/}
+            {/*</a>*/}
             <a
               href="tel:+375296800620"
               className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center"

@@ -1,7 +1,7 @@
 import Hero from '../components/Hero.jsx';
 import Slider from '../components/Slider.jsx';
 import Services from '../components/Services.jsx';
-import Steps from '../components/Steps.jsx';
+// import Steps from '../components/Steps.jsx';
 import Documents from '../components/Documents.jsx';
 import Reviews from '../components/Reviews.jsx';
 import Faq from '../components/Faq.jsx';
@@ -13,8 +13,8 @@ const LandingPage = ({onOpenModal}) => {
       <Hero onOpenModal={onOpenModal}/>
       <Slider/>
       <Services onOpenModal={onOpenModal}/>
-      <Steps/>
-      <Documents/>
+      {/*<Steps/>*/}
+      {/*<Documents/>*/}
       <Reviews/>
       <Faq/>
       <CallTooAction onOpenModal={onOpenModal}/>

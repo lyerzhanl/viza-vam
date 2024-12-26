@@ -1,7 +1,2 @@
 User-agent: *
-Disallow: /request
-Disallow: /404
-
-Allow: /
-
-Sitemap: https://visavam.by/sitemap.xml
+Disallow:

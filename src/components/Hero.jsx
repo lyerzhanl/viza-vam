@@ -5,12 +5,13 @@ const Hero = ({onOpenModal}) => {
       {/* Левая часть */}
       <div className="lg:absolute left-0 top-1/3 w-full lg:w-1/2 text-left lg:text-left z-10 px-[5%]">
         <h1 className="text-4xl lg:text-6xl font-semibold text-black">
-          ВИЗОВЫЙ<br/>ЦЕНТР МИНСК
+          ПРЕВРАТИ МЕЧТЫ<br/>
+          В РЕАЛЬНОСТЬ
         </h1>
         <p
           className="lg:mt-4 pl-6 text-xl lg:text-3xl text-[#F86F00] font-caveat transform rotate-[-4deg] opacity-65"
         >
-          Помогаем превратить мечты в реальность
+          Начни подготовку к путешествию прямо сейчас
         </p>
       </div>
 

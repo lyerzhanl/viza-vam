@@ -6,6 +6,8 @@ const Modal = ({ isOpen, onClose }) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
+  const [isAgreed, setIsAgreed] = useState(false);
+
   if (!isOpen) return null;
 
   const validatePhone = (phone) => {
@@ -25,6 +27,11 @@ const Modal = ({ isOpen, onClose }) => {
     setErrors((prev) => ({ ...prev, phone: "" }));
   };
 
+  const handleCheckboxChange = (e) => {
+    setIsAgreed(e.target.checked);
+    setErrors((prev) => ({ ...prev, agreement: "" }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, phone, email } = formData;
@@ -36,6 +43,7 @@ const Modal = ({ isOpen, onClose }) => {
     } else if (!validatePhone(phone)) {
       newErrors.phone = "Некорректный формат данных";
     }
+    if (!isAgreed) newErrors.agreement = "Вы должны согласиться с офертой";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -76,7 +84,6 @@ const Modal = ({ isOpen, onClose }) => {
       setIsSubmitting(false);
     }
   };
-
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -124,7 +131,7 @@ const Modal = ({ isOpen, onClose }) => {
               <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
             )}
           </div>
-          <div className="mb-4">
+          <div className="mb-1">
             <input
               type="email"
               name="email"
@@ -134,6 +141,29 @@ const Modal = ({ isOpen, onClose }) => {
               className="w-full border border-gray-300 rounded-[2px] p-2"
             />
           </div>
+          <div className="flex items-center mb-3">
+            <input
+              type="checkbox"
+              id="agreement"
+              checked={isAgreed}
+              onChange={handleCheckboxChange}
+              className="mr-2 accent-[#F86F00]"
+            />
+            <label htmlFor="agreement" className="text-sm">
+              Я согласен с{" "}
+              <a
+                href="/public-offer.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#F86F00]"
+              >
+                Публичной офертой
+              </a>
+            </label>
+          </div>
+          {errors.agreement && (
+            <p className="text-red-500 text-sm mt-1 mb-4">{errors.agreement}</p>
+          )}
           <div className="flex justify-center">
             <button
               type="submit"
