@@ -20,7 +20,7 @@ const Hero = ({onOpenModal}) => {
         {/* Изображение */}
         <img
           src="/banner-hero.svg"
-          alt="Оформление виз с VisaVam.by – Легко и Доступно"
+          alt="Путешествие с VisaVam.by – Легко и Доступно"
           className="relative lg:top-0 lg:left-[30%] lg:w-[55%]"
         />
 
