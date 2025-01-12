@@ -31,6 +31,21 @@ const App = () => {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (location.pathname === '/robots.txt') {
+      fetch('/robots.txt')
+        .then((response) => response.text())
+        .then((text) => {
+          const blob = new Blob([text], {type: 'text/plain'});
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'robots.txt';
+          a.click();
+        });
+    }
+  }, [location.pathname]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header onOpenModal={handleOpenModal}/>

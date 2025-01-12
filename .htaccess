@@ -1,2 +1,11 @@
+# Включение модуля переписывания
 RewriteEngine On
+
+# Правило для обработки robots.txt
 RewriteRule ^robots\.txt$ robots.txt [L]
+
+# Перенаправление всех остальных запросов на index.html для React
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
