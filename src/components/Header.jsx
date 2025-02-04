@@ -24,50 +24,61 @@ const Header = ({ onOpenModal, onScrollTo }) => {
           <div
             className="bg-customBlue text-white block sm:flex items-center sm:px-4 py-2 w-[54%] pl-[5%] clip-path-mobile clip-path-desktop"
           >
-          <span className="font-light text-[10px] sm:text-base">
-            пр-т Победителей 17, офис 1204
+          <span className="font-light text-[10px] sm:text-base" >
+            <noindex>
+              пр-т Победителей 17, офис 1204
+            </noindex>
           </span>
             <br/>
-            <span className="sm:ml-6 font-light text-[10px] sm:text-base">09:00-19:00</span>
+            <span className="sm:ml-6 font-light text-[10px] sm:text-base" >
+              <noindex>
+              09:00-19:00
+            </noindex>
+            </span>
           </div>
 
           <div
             className="bg-orange-500 text-white items-center justify-end px-4 py-2 sm:flex hidden"
             style={{width: "48%", paddingRight: "5%"}}
           >
-            <a
-              href="https://wa.me/375257654320"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-2"
-            >
-              <img src="/whatsapp.svg" alt="WhatsApp" className="h-5"/>
-            </a>
-            <a
-              href="viber://chat?number=375295648334"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-2"
-            >
-              <img src="/viber.svg" alt="Viber" className="h-5"/>
-            </a>
-            <a
-              href="https://t.me/+375295648334"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-2"
-            >
-              <img src="/telegram.svg" alt="Telegram" className="h-5"/>
-            </a>
-            {/*<a href="tel:+375296800620" className="mr-2">*/}
-            {/*  +375296800620*/}
-            {/*</a>*/}
-            {/*<a href="tel:+375293734870" className="mr-2">*/}
-            {/*  +375293734870*/}
-            {/*</a>*/}
-            {/*<a href="mailto:l336906097@gmail.com" className="mr-2">*/}
-            {/*  <img src="/mail.svg" alt="E-Mail" className="h-5"/>*/}
-            {/*</a>*/}
+            <noindex className={"bg-orange-500 text-white items-center justify-end px-4 py-2 sm:flex hidden"}>
+              <a href="tel:+375296800620" className="mr-2">
+                +375296800620
+              </a>
+              <a href="tel:+375293734870" className="mr-4">
+                +375293734870
+              </a>
+              <a
+                href="https://wa.me/375257654320"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-2"
+
+              >
+                <img src="/whatsapp.svg" alt="WhatsApp" className="h-5"/>
+              </a>
+              <a
+                href="viber://chat?number=375295648334"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-2"
+
+              >
+                <img src="/viber.svg" alt="Viber" className="h-5"/>
+              </a>
+              <a
+                href="https://t.me/+375295648334"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mr-2"
+
+              >
+                <img src="/telegram.svg" alt="Telegram" className="h-5"/>
+              </a>
+              {/*<a href="mailto:l336906097@gmail.com" className="mr-2">*/}
+              {/*  <img src="/mail.svg" alt="E-Mail" className="h-5"/>*/}
+              {/*</a>*/}
+            </noindex>
           </div>
         </div>
 
@@ -169,6 +180,7 @@ const Header = ({ onOpenModal, onScrollTo }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center"
+
             >
               <img src="/whatsapp.svg" alt="WhatsApp" className="w-12 h-12"/>
             </a>
@@ -177,6 +189,7 @@ const Header = ({ onOpenModal, onScrollTo }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center"
+
             >
               <img src="/viber.svg" alt="Viber" className="w-12 h-12"/>
             </a>
@@ -185,6 +198,7 @@ const Header = ({ onOpenModal, onScrollTo }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center"
+
             >
               <img src="/telegram.svg" alt="Telegram" className="w-12 h-12"/>
             </a>
@@ -197,12 +211,14 @@ const Header = ({ onOpenModal, onScrollTo }) => {
             <a
               href="tel:+375296800620"
               className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center"
+
             >
               <img src="/call.svg" alt="Phone" className="w-12 h-12"/>
             </a>
             <button
               onClick={onOpenModal}
               className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center text-white"
+
             >
               <img src="/floating-button.svg" alt="Email" className="w-12 h-12"/>
             </button>

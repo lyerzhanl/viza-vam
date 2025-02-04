@@ -6,7 +6,7 @@ const Modal = ({ isOpen, onClose }) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
-  const [isAgreed, setIsAgreed] = useState(false);
+  const [isAgreed, setIsAgreed] = useState(true);
 
   if (!isOpen) return null;
 
